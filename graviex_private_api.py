@@ -126,8 +126,9 @@ class GraviexPrivateAPI:
     def get_order(self, order_id):
         return self.call_api('order', params=dict(id=order_id))
 
-    def get_order_book(self, asks_limit=None, bids_limit=None):
-        return self.call_api('order_book', params=dict(asks_limit=asks_limit,
+    def get_order_book(self, market, asks_limit=None, bids_limit=None):
+        return self.call_api('order_book', params=dict(market=market,
+                                                       asks_limit=asks_limit,
                                                        bids_limit=bids_limit))
 
     def get_my_trades(self, limit=None, timestamp=None, from_id=None, to_id=None, order_by=None):
